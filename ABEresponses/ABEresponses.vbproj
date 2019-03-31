@@ -66,8 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsEnumerations.vb" />
+    <Compile Include="ExchangePrices.vb" />
     <Compile Include="MarketBook.vb" />
-    <Compile Include="modEnumerations.vb" />
+    <Compile Include="Match.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -84,6 +85,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Order.vb" />
+    <Compile Include="PriceSize.vb" />
+    <Compile Include="Runner.vb" />
+    <Compile Include="StartingPrices.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
