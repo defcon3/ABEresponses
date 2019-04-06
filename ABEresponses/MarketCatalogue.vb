@@ -3,17 +3,17 @@
     ''' Field required
     ''' </summary>
     ''' <returns>The unique identifier for the market. MarketId's are prefixed with '1.'</returns>
-    Public Property marketId As System.String = ""
+    Public Property marketId As System.String
     ''' <summary>
     ''' Field required
     ''' </summary>
     ''' <returns>The name of the market</returns>
-    Public Property marketName As System.String = ""
+    Public Property marketName As System.String
     ''' <summary>
     ''' Field optional
     ''' </summary>
     ''' <returns>The time this market starts at, only returned when the MARKET_START_TIME enum is passed in the marketProjections</returns>
-    Public Property marketStartTime As Date
+    Public Property marketStartTime As System.DateTime
     ''' <summary>
     ''' Field optional
     ''' </summary>
