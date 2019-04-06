@@ -66,7 +66,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsEnumerations.vb" />
+    <Compile Include="Competition.vb" />
+    <Compile Include="Event.vb" />
+    <Compile Include="EventType.vb" />
     <Compile Include="ExchangePrices.vb" />
+    <Compile Include="Handicap.vb" />
+    <Compile Include="KeyLineDescription.vb" />
+    <Compile Include="KeyLineSelection.vb" />
     <Compile Include="MarketBook.vb" />
     <Compile Include="MarketCatalogue.vb" />
     <Compile Include="MarketDescription.vb" />
@@ -92,6 +98,8 @@
     <Compile Include="PriceLadderDescription.vb" />
     <Compile Include="PriceSize.vb" />
     <Compile Include="Runner.vb" />
+    <Compile Include="RunnerCatalog.vb" />
+    <Compile Include="SelectionId.vb" />
     <Compile Include="StartingPrices.vb" />
   </ItemGroup>
   <ItemGroup>

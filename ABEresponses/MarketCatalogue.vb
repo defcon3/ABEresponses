@@ -43,5 +43,5 @@
     ''' Field optional
     ''' </summary>
     ''' <returns>The event the market is contained within</returns>
-    Public Property [event] As Event
+    Public Property [event] As [Event]
 End Class

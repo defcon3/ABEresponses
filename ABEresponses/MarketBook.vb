@@ -82,8 +82,14 @@ Public Class MarketBook
     ''' </summary>
     ''' <returns>The version of the market. The version increments whenever the market status changes, for example, turning in-play, or suspended when a goal is scored.</returns>
     Public Property version As System.Int64 = 0
-    Public Property runners As Runner
-    Public Property keyLineDescription
-
-
+    ''' <summary>
+    ''' Field optional
+    ''' </summary>
+    ''' <returns>Information about the runners (selections) in the market.</returns>
+    Public Property runners As List(Of Runner)
+    ''' <summary>
+    ''' Field optional
+    ''' </summary>
+    ''' <returns>Description of a markets key line for valid market types</returns>
+    Public Property keyLineDescription As KeyLineDescription
 End Class
