@@ -27,8 +27,4 @@ Public Class RunnerCatalog
     ''' </summary>
     ''' <returns>The handicap</returns>
     Public Property handicap As System.Double
-
-
-
-
 End Class

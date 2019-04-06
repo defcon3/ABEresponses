@@ -87,5 +87,4 @@ Public Class Order
     ''' </summary>
     ''' <returns>The customer strategy reference sent for this bet</returns>
     Public Property customerStrategyRef As System.String 'CustomerStrategyRef
-
 End Class

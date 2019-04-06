@@ -32,5 +32,4 @@ Public Class Match
     ''' </summary>
     ''' <returns>Only present if no rollup</returns>
     Public Property matchDate As System.DateTime
-
 End Class

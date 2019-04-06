@@ -62,6 +62,4 @@ Public Class Runner
     ''' </summary>
     ''' <returns>List of matches for each strategy, ordered by matched data</returns>
     Public Property matchesByStrategy
-
-
 End Class
