@@ -21,7 +21,7 @@ Public Class RunnerCatalog
     ''' Field optional
     ''' </summary>
     ''' <returns>Metadata associated with the runner.  For a description of this data for Horse Racing</returns>
-    Public Property metadata As System.String
+    Public Property metadata As RunnerMetadataDescription
     ''' <summary>
     ''' Field required
     ''' </summary>

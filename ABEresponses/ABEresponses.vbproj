@@ -99,6 +99,7 @@
     <Compile Include="PriceSize.vb" />
     <Compile Include="Runner.vb" />
     <Compile Include="RunnerCatalog.vb" />
+    <Compile Include="RunnerMetadataDescription.vb" />
     <Compile Include="SelectionId.vb" />
     <Compile Include="StartingPrices.vb" />
   </ItemGroup>
