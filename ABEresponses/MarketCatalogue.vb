@@ -23,7 +23,7 @@
     ''' Field optional
     ''' </summary>
     ''' <returns>The total amount of money matched on the market</returns>
-    Public Property totalMatched As Double
+    Public Property totalMatched As System.Double
     ''' <summary>
     ''' Field optional
     ''' </summary>
