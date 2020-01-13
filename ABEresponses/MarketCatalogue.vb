@@ -11,6 +11,7 @@
     Public Property marketName As System.String
     ''' <summary>
     ''' Field optional
+    ''' wew
     ''' </summary>
     ''' <returns>The time this market starts at, only returned when the MARKET_START_TIME enum is passed in the marketProjections</returns>
     Public Property marketStartTime As System.DateTime
