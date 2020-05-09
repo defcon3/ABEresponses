@@ -2,7 +2,6 @@
 ''' MarketCatalogue - Objekt, erbt die Properties aus clsResponseRoot
 ''' </summary>
 Public Class MarketCatalogue
-    Inherits clsResponseRoot
     ''' <summary>
     ''' Field required
     ''' </summary>
