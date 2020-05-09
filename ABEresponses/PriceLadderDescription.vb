@@ -6,5 +6,5 @@ Public Class PriceLadderDescription
     ''' Field optional
     ''' </summary>
     ''' <returns>The type of price ladder.</returns>
-    Public Property type As clsEnumerations.PriceLadderType
+    Public Property type As clsEnumerations.PriceLadderType = clsEnumerations.PriceLadderType.INITIALISE
 End Class

@@ -23,6 +23,11 @@ Public Class clsEnumerations
         ''' The market has been settled And Is no longer available For betting.
         ''' </summary>
         CLOSED 'The market has been settled And Is no longer available For betting.
+        ''' <summary>
+        ''' No Entry found.
+        ''' </summary>
+        INITIALISE
+
     End Enum
 
     ''' <summary>
@@ -57,6 +62,11 @@ Public Class clsEnumerations
         ''' The selection Is hidden from the market.  This occurs In Horse Racing markets were runners Is hidden When it Is doesn't hold an official entry following an entry stage. This could be because the horse was never entered or because they have been scratched from a race at a declaration stage. All matched customer bet prices are set to 1.0 even if there are later supplementary stages. Should it appear likely that a specific runner may actually be supplemented into the race this runner will be reinstated with all matched customer bets set back to the original prices.
         ''' </summary>
         HIDDEN 'The selection Is hidden from the market.  This occurs In Horse Racing markets were runners Is hidden When it Is doesn't hold an official entry following an entry stage. This could be because the horse was never entered or because they have been scratched from a race at a declaration stage. All matched customer bet prices are set to 1.0 even if there are later supplementary stages. Should it appear likely that a specific runner may actually be supplemented into the race this runner will be reinstated with all matched customer bets set back to the original prices.
+        ''' <summary>
+        ''' No Entry found.
+        ''' </summary>
+        INITIALISE
+
     End Enum
 
     ''' <summary>
@@ -71,6 +81,11 @@ Public Class clsEnumerations
         ''' Lay-Side
         ''' </summary>
         LAY 'LAY
+        ''' <summary>
+        ''' No Entry found.
+        ''' </summary>
+        INITIALISE
+
     End Enum
 
     ''' <summary>
@@ -89,6 +104,11 @@ Public Class clsEnumerations
         ''' Market order for the auction (SP)
         ''' </summary>
         MARKET_ON_CLOSE 'MARKET_ON_CLOSE
+        ''' <summary>
+        ''' No Entry found.
+        ''' </summary>
+        INITIALISE
+
     End Enum
 
     ''' <summary>
@@ -111,6 +131,11 @@ Public Class clsEnumerations
         ''' The order is no longer available for execution due to its time in force constraint. In the case of FILL_OR_KILL orders, this means the order has been killed because it could Not be filled to your specifications. Not a valid search criteria on MarketFilter
         ''' </summary>
         EXPIRED 'EXPIRED
+        ''' <summary>
+        ''' No Entry found.
+        ''' </summary>
+        INITIALISE
+
     End Enum
 
     ''' <summary>
@@ -129,6 +154,11 @@ Public Class clsEnumerations
         ''' Put the order into the auction (SP) at turn-in-play
         ''' </summary>
         MARKET_ON_CLOSE 'MARKET_ON_CLOSE
+        ''' <summary>
+        ''' No Entry found.
+        ''' </summary>
+        INITIALISE
+
     End Enum
 
     ''' <summary>
@@ -159,6 +189,10 @@ Public Class clsEnumerations
         ''' Sportsbook Odds Market. This type is deprecated and will be removed in future releases, when Sportsbook markets will be represented as ODDS market but with a different product type.
         ''' </summary>
         FIXED_ODDS
+        ''' <summary>
+        ''' No Entry found.
+        ''' </summary>
+        INITIALISE
 
     End Enum
 
@@ -178,6 +212,10 @@ Public Class clsEnumerations
         ''' Price ladder used for LINE markets. Refer to MarketLineRangeInfo for more details.
         ''' </summary>
         LINE_RANGE
+        ''' <summary>
+        ''' No Entry found.
+        ''' </summary>
+        INITIALISE
 
     End Enum
 

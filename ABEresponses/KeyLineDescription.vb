@@ -6,5 +6,5 @@ Public Class KeyLineDescription
     ''' Field optional
     ''' </summary>
     ''' <returns>A list of KeyLineSelection objects</returns>
-    Public Property keyLine As List(Of KeyLineSelection)
+    Public Property keyLine As List(Of KeyLineSelection) = New List(Of KeyLineSelection)
 End Class

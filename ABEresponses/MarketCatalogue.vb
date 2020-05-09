@@ -6,12 +6,12 @@ Public Class MarketCatalogue
     ''' Field required
     ''' </summary>
     ''' <returns>The unique identifier for the market. MarketId's are prefixed with '1.'</returns>
-    Public Property marketId As System.String
+    Public Property marketId As System.String = "---"
     ''' <summary>
     ''' Field required
     ''' </summary>
     ''' <returns>The name of the market</returns>
-    Public Property marketName As System.String
+    Public Property marketName As System.String = "---"
     ''' <summary>
     ''' Field optional
     ''' wew
@@ -22,30 +22,30 @@ Public Class MarketCatalogue
     ''' Field optional
     ''' </summary>
     ''' <returns>Details about the market</returns>
-    Public Property description As MarketDescription
+    Public Property description As MarketDescription = New MarketDescription
     ''' <summary>
     ''' Field optional
     ''' </summary>
     ''' <returns>The total amount of money matched on the market</returns>
-    Public Property totalMatched As System.Double
+    Public Property totalMatched As System.Double = -1
     ''' <summary>
     ''' Field optional
     ''' </summary>
     ''' <returns>The runners (selections) contained in the market</returns>
-    Public Property runners As List(Of RunnerCatalog)
+    Public Property runners As List(Of RunnerCatalog) = New List(Of RunnerCatalog)
     ''' <summary>
     ''' Field optional
     ''' </summary>
     ''' <returns>The Event Type the market is contained within</returns>
-    Public Property eventType As EventType
+    Public Property eventType As EventType = New EventType
     ''' <summary>
     ''' Field optional
     ''' </summary>
     ''' <returns>The competition the market is contained within. Usually only applies to Football competitions</returns>
-    Public Property competition As Competition
+    Public Property competition As Competition = New Competition
     ''' <summary>
     ''' Field optional
     ''' </summary>
     ''' <returns>The event the market is contained within</returns>
-    Public Property [event] As [Event]
+    Public Property [event] As [Event] = New [Event]
 End Class

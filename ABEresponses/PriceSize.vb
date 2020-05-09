@@ -6,10 +6,10 @@ Public Class PriceSize
     ''' Field required
     ''' </summary>
     ''' <returns>The price available</returns>
-    Public Property price As System.Double
+    Public Property price As System.Double = -1
     ''' <summary>
     ''' Field required
     ''' </summary>
     ''' <returns>The stake available</returns>
-    Public Property size As System.Double
+    Public Property size As System.Double = -1
 End Class

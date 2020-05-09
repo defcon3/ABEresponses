@@ -6,5 +6,5 @@ Public Class Handicap
     ''' Field optional
     ''' </summary>
     ''' <returns>This is an alias</returns>
-    Public Property Handicap As System.Double
+    Public Property Handicap As System.Double = -1
 End Class

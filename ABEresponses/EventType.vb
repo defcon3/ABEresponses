@@ -6,10 +6,10 @@ Public Class EventType
     ''' Field optional
     ''' </summary>
     ''' <returns>id</returns>
-    Public Property id As System.String
+    Public ReadOnly Property id As System.String = "---"
     ''' <summary>
     ''' Field optional
     ''' </summary>
     ''' <returns>name</returns>
-    Public Property name As System.String
+    Public Property name As System.String = "---"
 End Class

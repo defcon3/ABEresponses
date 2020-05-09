@@ -6,10 +6,10 @@ Public Class Competition
     ''' Field optional
     ''' </summary>
     ''' <returns>id</returns>
-    Public Property id As System.String
+    Public Property id As System.String = "---"
     ''' <summary>
     ''' Field optional
     ''' </summary>
     ''' <returns>name</returns>
-    Public Property name As System.String
+    Public Property name As System.String = "---"
 End Class
