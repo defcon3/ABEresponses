@@ -3,7 +3,6 @@
 ''' </summary>
 Public Class MarketCatalogue
     Inherits clsResponseRoot
-
     ''' <summary>
     ''' Field required
     ''' </summary>
@@ -20,7 +19,6 @@ Public Class MarketCatalogue
     ''' </summary>
     ''' <returns>The time this market starts at, only returned when the MARKET_START_TIME enum is passed in the marketProjections</returns>
     Public Property marketStartTime As System.DateTime
-
     ''' <summary>
     ''' Field optional
     ''' </summary>
@@ -30,7 +28,7 @@ Public Class MarketCatalogue
     ''' Field optional
     ''' </summary>
     ''' <returns>The total amount of money matched on the market</returns>
-    Public Property totalMatched As System.String
+    Public Property totalMatched As System.Double
     ''' <summary>
     ''' Field optional
     ''' </summary>
