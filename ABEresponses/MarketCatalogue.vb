@@ -20,6 +20,7 @@ Public Class MarketCatalogue
     ''' </summary>
     ''' <returns>The time this market starts at, only returned when the MARKET_START_TIME enum is passed in the marketProjections</returns>
     Public Property marketStartTime As System.DateTime
+
     ''' <summary>
     ''' Field optional
     ''' </summary>
