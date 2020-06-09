@@ -1,4 +1,5 @@
-﻿''' <summary>
+﻿Imports System.Windows.Forms
+''' <summary>
 ''' Klasse MarketBook
 ''' </summary>
 Public Class MarketBook
@@ -92,4 +93,11 @@ Public Class MarketBook
     ''' </summary>
     ''' <returns>Description of a markets key line for valid market types</returns>
     Public Property keyLineDescription As KeyLineDescription = New KeyLineDescription
+
+    Public Function getnode() As TreeNode
+        Dim newnode As New TreeNode
+        newnode.Nodes.Add("ksfdlj")
+        Return newnode
+    End Function
+
 End Class
