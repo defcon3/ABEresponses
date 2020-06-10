@@ -95,8 +95,25 @@ Public Class MarketBook
     Public Property keyLineDescription As KeyLineDescription = New KeyLineDescription
 
     Public Function getnode() As TreeNode
-        Dim newnode As New TreeNode
-        newnode.Nodes.Add("ksfdlj")
+        Dim newnode = New TreeNode With {.Text = "marketId: " & marketId, .Name = marketId, .Tag = marketId}
+        newnode.Nodes.Add(New TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now})
+        newnode.Nodes.Add(New TreeNode With {.Text = "isMarketDataDelayed: " & isMarketDataDelayed, .Tag = isMarketDataDelayed})
+        newnode.Nodes.Add(New TreeNode With {.Text = "status: " & status, .Tag = status})
+        newnode.Nodes.Add(New TreeNode With {.Text = "betDelay: " & betDelay, .Tag = betDelay})
+        newnode.Nodes.Add(New TreeNode With {.Text = "totalMatched: " & totalMatched, .Tag = totalMatched})
+        newnode.Nodes.Add(New TreeNode With {.Text = "bspReconciled: " & bspReconciled, .Tag = bspReconciled})
+        newnode.Nodes.Add(New TreeNode With {.Text = "complete: " & complete, .Tag = complete})
+        newnode.Nodes.Add(New TreeNode With {.Text = "inplay: " & inplay, .Tag = inplay})
+        newnode.Nodes.Add(New TreeNode With {.Text = "numberOfWinners: " & numberOfWinners, .Tag = numberOfWinners})
+        newnode.Nodes.Add(New TreeNode With {.Text = "numberOfRunners: " & numberOfRunners, .Tag = numberOfRunners})
+        newnode.Nodes.Add(New TreeNode With {.Text = "numberOfActiveRunners: " & numberOfActiveRunners, .Tag = numberOfActiveRunners})
+        newnode.Nodes.Add(New TreeNode With {.Text = "lastMatchTime: " & lastMatchTime, .Tag = lastMatchTime})
+        newnode.Nodes.Add(New TreeNode With {.Text = "totalAvailable: " & totalAvailable, .Tag = totalAvailable})
+        newnode.Nodes.Add(New TreeNode With {.Text = "crossMatching: " & crossMatching, .Tag = crossMatching})
+        newnode.Nodes.Add(New TreeNode With {.Text = "runnersVoidable: " & runnersVoidable, .Tag = runnersVoidable})
+        newnode.Nodes.Add(New TreeNode With {.Text = "Version: " & version, .Tag = version})
+
+
         Return newnode
     End Function
 
