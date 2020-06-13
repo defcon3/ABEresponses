@@ -87,4 +87,30 @@ Public Class Order
     ''' </summary>
     ''' <returns>The customer strategy reference sent for this bet</returns>
     Public Property customerStrategyRef As System.String = "---" 'CustomerStrategyRef
+
+    Public Function getnode() As System.Windows.Forms.TreeNode
+
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "betId: " & betId, .Name = betId, .Tag = betId}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "orderType: " & orderType, .Tag = orderType})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "status: " & status, .Tag = status})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "persistenceType: " & persistenceType, .Tag = persistenceType})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "side: " & side, .Tag = side})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "price: " & price, .Tag = price})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "size: " & size, .Tag = size})
+
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "bspLiability: " & bspLiability, .Tag = bspLiability})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "placedDate: " & placedDate, .Tag = placedDate})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "avgPriceMatched: " & avgPriceMatched, .Tag = avgPriceMatched})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeMatched: " & sizeMatched, .Tag = sizeMatched})
+
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeRemaining: " & sizeRemaining, .Tag = sizeRemaining})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeLapsed: " & sizeLapsed, .Tag = sizeLapsed})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeCancelled: " & sizeCancelled, .Tag = sizeCancelled})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeVoided: " & sizeVoided, .Tag = sizeVoided})
+
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "customerOrderRef: " & customerOrderRef, .Tag = customerOrderRef})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "customerStrategyRef: " & customerStrategyRef, .Tag = customerStrategyRef})
+
+        Return newnode
+    End Function
 End Class

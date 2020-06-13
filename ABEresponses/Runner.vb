@@ -62,4 +62,26 @@ Public Class Runner
     ''' </summary>
     ''' <returns>List of matches for each strategy, ordered by matched data</returns>
     Public Property matchesByStrategy
+
+
+    Public Function getnode() As System.Windows.Forms.TreeNode
+
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "selectionId: " & selectionId, .Name = selectionId, .Tag = selectionId}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "handicap: " & handicap, .Tag = handicap})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "status: " & status, .Tag = status})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "adjustmentFactor: " & adjustmentFactor, .Tag = adjustmentFactor})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "lastPriceTraded: " & lastPriceTraded, .Tag = lastPriceTraded})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "totalMatched: " & totalMatched, .Tag = totalMatched})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "removalDate: " & removalDate, .Tag = removalDate})
+        newnode.Nodes.Add(sp.getnode)
+        newnode.Nodes.Add(ex.getnode)
+        For Each o As [Order] In orders
+            newnode.Nodes.Add(o.getnode)
+        Next
+        For Each m As Match In matches
+            newnode.Nodes.Add(m.getnode)
+        Next
+
+        Return newnode
+    End Function
 End Class

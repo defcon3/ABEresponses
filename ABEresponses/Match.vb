@@ -32,4 +32,17 @@ Public Class Match
     ''' </summary>
     ''' <returns>Only present if no rollup</returns>
     Public Property matchDate As System.DateTime
+
+
+    Public Function getnode() As System.Windows.Forms.TreeNode
+
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "betId: " & betId, .Name = betId, .Tag = betId}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "matchId: " & matchId, .Tag = matchId})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "side: " & side, .Tag = side})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "price: " & price, .Tag = price})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "size: " & size, .Tag = size})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "matchDate: " & matchDate, .Tag = matchDate})
+        Return newnode
+    End Function
+
 End Class

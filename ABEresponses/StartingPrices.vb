@@ -28,4 +28,21 @@ Public Class StartingPrices
     ''' <returns>The final BSP price for this runner. Only available for a BSP market that has been reconciled.</returns>
     Public Property actualSP As System.Double = -1
 
+    Public Function getnode() As System.Windows.Forms.TreeNode
+
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "StartingPrices", .Name = "StartingPrices", .Tag = "StartingPrices"}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "nearPrice: " & nearPrice, .Tag = nearPrice})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "farPrice: " & farPrice, .Tag = farPrice})
+        For Each bst As PriceSize In backStakeTaken
+            newnode.Nodes.Add(bst.getnode)
+        Next
+        For Each llt As PriceSize In layLiabilityTaken
+            newnode.Nodes.Add(llt.getnode)
+        Next
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "actualSP: " & actualSP, .Tag = actualSP})
+
+        Return newnode
+
+    End Function
+
 End Class

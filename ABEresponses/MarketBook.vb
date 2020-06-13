@@ -94,7 +94,7 @@ Public Class MarketBook
     ''' <returns>Description of a markets key line for valid market types</returns>
     Public Property keyLineDescription As KeyLineDescription = New KeyLineDescription
 
-    Public Function getnode() As TreeNode
+    Public Function getnode() As System.Windows.Forms.TreeNode
         Dim newnode = New TreeNode With {.Text = "marketId: " & marketId, .Name = marketId, .Tag = marketId}
         newnode.Nodes.Add(New TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now})
         newnode.Nodes.Add(New TreeNode With {.Text = "isMarketDataDelayed: " & isMarketDataDelayed, .Tag = isMarketDataDelayed})
@@ -112,6 +112,10 @@ Public Class MarketBook
         newnode.Nodes.Add(New TreeNode With {.Text = "crossMatching: " & crossMatching, .Tag = crossMatching})
         newnode.Nodes.Add(New TreeNode With {.Text = "runnersVoidable: " & runnersVoidable, .Tag = runnersVoidable})
         newnode.Nodes.Add(New TreeNode With {.Text = "Version: " & version, .Tag = version})
+
+        For Each ru As Runner In runners
+            newnode.Nodes.Add(ru.getnode)
+        Next
 
 
         Return newnode
