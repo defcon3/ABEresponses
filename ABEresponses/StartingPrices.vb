@@ -31,14 +31,21 @@ Public Class StartingPrices
     Public Function getnode() As System.Windows.Forms.TreeNode
 
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "StartingPrices", .Name = "StartingPrices", .Tag = "StartingPrices"}
+        Dim bstnode = New System.Windows.Forms.TreeNode With {.Text = "backStakeTaken", .Name = "backStakeTaken", .Tag = "backStakeTaken"}
+        Dim lltnode = New System.Windows.Forms.TreeNode With {.Text = "layLiabilityTaken", .Name = "layLiabilityTaken", .Tag = "layLiabilityTaken"}
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "nearPrice: " & nearPrice, .Tag = nearPrice})
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "farPrice: " & farPrice, .Tag = farPrice})
+
         For Each bst As PriceSize In backStakeTaken
-            newnode.Nodes.Add(bst.getnode)
+            bstnode.Nodes.Add(bst.getnode)
         Next
         For Each llt As PriceSize In layLiabilityTaken
-            newnode.Nodes.Add(llt.getnode)
+            lltnode.Nodes.Add(llt.getnode)
         Next
+
+        newnode.Nodes.Add(bstnode)
+        newnode.Nodes.Add(lltnode)
+
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "actualSP: " & actualSP, .Tag = actualSP})
 
         Return newnode

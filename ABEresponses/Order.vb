@@ -90,7 +90,8 @@ Public Class Order
 
     Public Function getnode() As System.Windows.Forms.TreeNode
 
-        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "betId: " & betId, .Name = betId, .Tag = betId}
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "order", .Name = "order", .Tag = "order"}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "betId: " & betId, .Tag = betId})
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "orderType: " & orderType, .Tag = orderType})
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "status: " & status, .Tag = status})
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "persistenceType: " & persistenceType, .Tag = persistenceType})

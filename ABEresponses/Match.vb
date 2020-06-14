@@ -36,7 +36,8 @@ Public Class Match
 
     Public Function getnode() As System.Windows.Forms.TreeNode
 
-        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "betId: " & betId, .Name = betId, .Tag = betId}
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "match", .Name = "match", .Tag = "match"}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "betId: " & betId, .Tag = betId})
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "matchId: " & matchId, .Tag = matchId})
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "side: " & side, .Tag = side})
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "price: " & price, .Tag = price})

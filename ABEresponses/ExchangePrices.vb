@@ -1,4 +1,5 @@
-﻿''' <summary>
+﻿Imports System.Windows.Forms
+''' <summary>
 ''' Public Class ExchangePrices
 ''' </summary>
 Public Class ExchangePrices
@@ -20,24 +21,27 @@ Public Class ExchangePrices
     Public Function getnode() As System.Windows.Forms.TreeNode
 
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "ExchangePrices", .Name = "ExchangePrices", .Tag = "ExchangePrices"}
-        newnode.Nodes.Add("availableToBack")
-        Dim tn As System.Windows.Forms.TreeNode
+
+        Dim atbnode = New System.Windows.Forms.TreeNode With {.Text = "availableToBack", .Name = "availableToBack", .Tag = "availableToBack"}
+        Dim atlnode = New System.Windows.Forms.TreeNode With {.Text = "availableToLay", .Name = "availableToLay", .Tag = "availableToLay"}
+        Dim tvnode = New System.Windows.Forms.TreeNode With {.Text = "tradedVolume", .Name = "tradedVolume", .Tag = "tradedVolume"}
+
 
         For Each atb As PriceSize In availableToBack
-            tn = atb.getnode
-            tn.Text = "availableToBack"
-            newnode.Nodes.Add(tn)
+            atbnode.Nodes.Add(atb.getnode)
         Next
-        For Each atb As PriceSize In availableToLay
-            tn = atb.getnode
-            tn.Text = "availableToLay"
-            newnode.Nodes.Add(tn)
+
+        For Each atl As PriceSize In availableToLay
+            atlnode.Nodes.Add(atl.getnode)
         Next
-        For Each atb As PriceSize In tradedVolume
-            tn = atb.getnode
-            tn.Text = "tradedVolume"
-            newnode.Nodes.Add(tn)
+        For Each tv As PriceSize In tradedVolume
+            tvnode.Nodes.Add(tv.getnode)
         Next
+        newnode.Nodes.Add(atbnode)
+        newnode.Nodes.Add(atlnode)
+        newnode.Nodes.Add(tvnode)
+
+
         Return newnode
 
     End Function

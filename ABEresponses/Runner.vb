@@ -66,7 +66,8 @@ Public Class Runner
 
     Public Function getnode() As System.Windows.Forms.TreeNode
 
-        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "selectionId: " & selectionId, .Name = selectionId, .Tag = selectionId}
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "runner", .Name = "runner", .Tag = "runner"}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "selectionId: " & selectionId, .Tag = selectionId})
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "handicap: " & handicap, .Tag = handicap})
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "status: " & status, .Tag = status})
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "adjustmentFactor: " & adjustmentFactor, .Tag = adjustmentFactor})
