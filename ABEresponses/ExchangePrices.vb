@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.Globalization
+Imports System.Windows.Forms
 ''' <summary>
 ''' Public Class ExchangePrices
 ''' </summary>
@@ -18,6 +19,7 @@ Public Class ExchangePrices
     ''' </summary>
     ''' <returns>tradedVolume</returns>
     Public Property tradedVolume As List(Of PriceSize) = New List(Of PriceSize)
+
     Public Function getnode() As System.Windows.Forms.TreeNode
 
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "ExchangePrices", .Name = "ExchangePrices", .Tag = "ExchangePrices"}
@@ -41,8 +43,11 @@ Public Class ExchangePrices
         newnode.Nodes.Add(atlnode)
         newnode.Nodes.Add(tvnode)
 
-
         Return newnode
 
     End Function
+
+
+
+
 End Class
