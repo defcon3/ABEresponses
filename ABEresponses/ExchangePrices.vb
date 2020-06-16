@@ -29,6 +29,12 @@ Public Class ExchangePrices
     ''' </summary>
     ''' <returns>Date.Now</returns>
     Public Property exchangePricesNow As DateTime = Date.Now
+    ''' <summary>
+    ''' Zeitangabe in Ticks
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property exchangePricesNowTicks As Long = Date.Now.Ticks
+
 
     ''' <summary>
     ''' Gibt das Objekt als Treeviewknoten zurück. Knoten heißt ExchangePrices und hat alle Angaben darunter
@@ -62,21 +68,21 @@ Public Class ExchangePrices
     End Function
 
     Function gettable() As System.Data.DataTable
-        Dim dt As New System.Data.DataTable
+        Dim dt As New System.Data.DataTable("exchangePrices")
         dt.Columns.Add("ID", GetType(System.Int64))
         dt.Columns.Add("TYP", GetType(System.String))
         dt.Columns.Add("PRICE", GetType(System.Decimal))
         dt.Columns.Add("SIZE", GetType(System.Decimal))
         dt.Columns.Add("EXCHANGEPRICESTIMESTAMP", GetType(System.String))
-        dt.Columns.Add("EXCHANGEPRICESNOW", GetType(System.DateTime))
-
+        dt.Columns.Add("EXCHANGEPRICESNOW", GetType(Date))
+        dt.Columns.Add("EXCHANGEPRICESNOWTICKS", GetType(Long))
 
 
         Dim i = 0
 
         For Each atb As PriceSize In availableToBack
 
-            dt.Rows.Add(i, "availableToBack", atb.price, atb.size, exchangePricesTimeStamp,exchangePricesNow)
+            dt.Rows.Add(i, "availableToBack", atb.price, atb.size, exchangePricesTimeStamp, exchangePricesNow, exchangePricesNowTicks)
             i += 1
         Next
 
@@ -84,7 +90,7 @@ Public Class ExchangePrices
 
         For Each atb As PriceSize In availableToLay
 
-            dt.Rows.Add(i, "availableToLay", atb.price, atb.size, exchangePricesTimeStamp, exchangePricesNow)
+            dt.Rows.Add(i, "availableToLay", atb.price, atb.size, exchangePricesTimeStamp, exchangePricesNow, exchangePricesNowTicks)
             i += 1
         Next
 
@@ -92,13 +98,12 @@ Public Class ExchangePrices
 
         For Each atb As PriceSize In tradedVolume
 
-            dt.Rows.Add(i, "tradedVolume", atb.price, atb.size, exchangePricesTimeStamp, exchangePricesNow)
+            dt.Rows.Add(i, "tradedVolume", atb.price, atb.size, exchangePricesTimeStamp, exchangePricesNow, exchangePricesNowTicks)
             i += 1
         Next
 
         Return dt
 
     End Function
-
 
 End Class

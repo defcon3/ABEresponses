@@ -62,7 +62,18 @@ Public Class Runner
     ''' </summary>
     ''' <returns>List of matches for each strategy, ordered by matched data</returns>
     Public Property matchesByStrategy
+    Public Function gettable() As System.Data.DataTable
 
+        Dim dt As New DataTable
+
+        dt = ex.gettable.Copy
+        dt.Columns.Add("SELECTIONID", GetType(String), selectionId)
+        dt.Columns.Add("HANDICAP", GetType(Double), handicap.ToString)
+        dt.Columns.Add("STATUS", GetType(Long), CStr(status))
+
+        Return dt
+
+    End Function
 
     Public Function getnode() As System.Windows.Forms.TreeNode
 
