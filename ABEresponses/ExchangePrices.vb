@@ -19,7 +19,16 @@ Public Class ExchangePrices
     ''' </summary>
     ''' <returns>tradedVolume</returns>
     Public Property tradedVolume As List(Of PriceSize) = New List(Of PriceSize)
+    ''' <summary>
+    ''' Zeitstempel als String
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property exchangePricesTimeStamp As String = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")
 
+    ''' <summary>
+    ''' Gibt das Objekt als Treeviewknoten zurück. Knoten heißt ExchangePrices und hat alle Angaben darunter
+    ''' </summary>
+    ''' <returns>Treeviewknoten "ExchangePrices"</returns>
     Public Function getnode() As System.Windows.Forms.TreeNode
 
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "ExchangePrices", .Name = "ExchangePrices", .Tag = "ExchangePrices"}
