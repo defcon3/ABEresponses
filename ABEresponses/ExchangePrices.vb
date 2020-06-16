@@ -24,6 +24,11 @@ Public Class ExchangePrices
     ''' </summary>
     ''' <returns></returns>
     Public Property exchangePricesTimeStamp As String = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")
+    ''' <summary>
+    ''' Zeitstempel as Datum
+    ''' </summary>
+    ''' <returns>Date.Now</returns>
+    Public Property exchangePricesNow As DateTime = Date.Now
 
     ''' <summary>
     ''' Gibt das Objekt als Treeviewknoten zurück. Knoten heißt ExchangePrices und hat alle Angaben darunter
@@ -56,7 +61,44 @@ Public Class ExchangePrices
 
     End Function
 
+    Function gettable() As System.Data.DataTable
+        Dim dt As New System.Data.DataTable
+        dt.Columns.Add("ID", GetType(System.Int64))
+        dt.Columns.Add("TYP", GetType(System.String))
+        dt.Columns.Add("PRICE", GetType(System.Decimal))
+        dt.Columns.Add("SIZE", GetType(System.Decimal))
+        dt.Columns.Add("EXCHANGEPRICESTIMESTAMP", GetType(System.String))
+        dt.Columns.Add("EXCHANGEPRICESNOW", GetType(System.DateTime))
 
+
+
+        Dim i = 0
+
+        For Each atb As PriceSize In availableToBack
+
+            dt.Rows.Add(i, "availableToBack", atb.price, atb.size, exchangePricesTimeStamp,exchangePricesNow)
+            i += 1
+        Next
+
+        i = 0
+
+        For Each atb As PriceSize In availableToLay
+
+            dt.Rows.Add(i, "availableToLay", atb.price, atb.size, exchangePricesTimeStamp, exchangePricesNow)
+            i += 1
+        Next
+
+        i = 0
+
+        For Each atb As PriceSize In tradedVolume
+
+            dt.Rows.Add(i, "tradedVolume", atb.price, atb.size, exchangePricesTimeStamp, exchangePricesNow)
+            i += 1
+        Next
+
+        Return dt
+
+    End Function
 
 
 End Class
