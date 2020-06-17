@@ -66,18 +66,19 @@ Public Class Runner
 
         Dim dt As New DataTable
 
-        Dim statusname As String = [Enum].GetName(GetType(clsEnumerations.RunnerStatus), status)
 
-        Dim dc As New DataColumn
-        dc.DefaultValue = statusname
-        dc.DataType = GetType(String)
-        dc.ColumnName = "viet"
-
+        
         dt = ex.gettable.Copy
-        dt.Columns.Add("SELECTIONID", GetType(String), selectionId)
-        dt.Columns.Add("HANDICAP", GetType(Double), handicap.ToString)
-        dt.Columns.Add(New DataColumn With {.ColumnName = "STATUS", .DataType = GetType(String), .DefaultValue = statusname})
-        dt.Columns.Add(dc)
+        dt.Columns.Add(New DataColumn With {.ColumnName = "SELECTIONID", .DataType = GetType(String), .DefaultValue = selectionId})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "HANDICAP", .DataType = GetType(Double), .DefaultValue = handicap})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "STATUS", .DataType = GetType(String), .DefaultValue = [Enum].GetName(GetType(clsEnumerations.RunnerStatus), status)})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "ADJUSTMENTFACTOR", .DataType = GetType(Double), .DefaultValue = adjustmentFactor})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "LASTPRICETRADED", .DataType = GetType(Double), .DefaultValue = lastPriceTraded})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "TOTALMATCHED", .DataType = GetType(Double), .DefaultValue = totalMatched})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "REMOVALDATED", .DataType = GetType(system.datetime), .DefaultValue = removalDate})
+
+
+
 
         Return dt
 
