@@ -66,10 +66,18 @@ Public Class Runner
 
         Dim dt As New DataTable
 
+        Dim statusname As String = [Enum].GetName(GetType(clsEnumerations.RunnerStatus), status)
+
+        Dim dc As New DataColumn
+        dc.DefaultValue = statusname
+        dc.DataType = GetType(String)
+        dc.ColumnName = "viet"
+
         dt = ex.gettable.Copy
         dt.Columns.Add("SELECTIONID", GetType(String), selectionId)
         dt.Columns.Add("HANDICAP", GetType(Double), handicap.ToString)
-        dt.Columns.Add("STATUS", GetType(Long), CStr(status))
+        dt.Columns.Add(New DataColumn With {.ColumnName = "STATUS", .DataType = GetType(String), .DefaultValue = statusname})
+        dt.Columns.Add(dc)
 
         Return dt
 
