@@ -62,22 +62,31 @@ Public Class Runner
     ''' </summary>
     ''' <returns>List of matches for each strategy, ordered by matched data</returns>
     Public Property matchesByStrategy
+    ''' <summary>
+    ''' Zeitstempel als String
+    ''' </summary>
+    ''' <returns></returns>
+
     Public Function gettable() As System.Data.DataTable
 
-        Dim dt As New DataTable
+        Dim dt As New DataTable("Runner")
 
         dt.Merge(ex.gettable, True, MissingSchemaAction.Add)
         dt.Merge(sp.gettable, True, MissingSchemaAction.Add)
 
 
         'dt = ex.gettable.Copy
-        dt.Columns.Add(New DataColumn With {.ColumnName = "SELECTIONID", .DataType = GetType(String), .DefaultValue = selectionId})
-        dt.Columns.Add(New DataColumn With {.ColumnName = "HANDICAP", .DataType = GetType(Double), .DefaultValue = handicap})
-        dt.Columns.Add(New DataColumn With {.ColumnName = "STATUS", .DataType = GetType(String), .DefaultValue = [Enum].GetName(GetType(clsEnumerations.RunnerStatus), status)})
-        dt.Columns.Add(New DataColumn With {.ColumnName = "ADJUSTMENTFACTOR", .DataType = GetType(Double), .DefaultValue = adjustmentFactor})
-        dt.Columns.Add(New DataColumn With {.ColumnName = "LASTPRICETRADED", .DataType = GetType(Double), .DefaultValue = lastPriceTraded})
-        dt.Columns.Add(New DataColumn With {.ColumnName = "TOTALMATCHED", .DataType = GetType(Double), .DefaultValue = totalMatched})
-        dt.Columns.Add(New DataColumn With {.ColumnName = "REMOVALDATED", .DataType = GetType(system.datetime), .DefaultValue = removalDate})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNER_SELECTIONID", .DataType = GetType(String), .DefaultValue = selectionId})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNER_HANDICAP", .DataType = GetType(Double), .DefaultValue = handicap})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNER_STATUS", .DataType = GetType(String), .DefaultValue = [Enum].GetName(GetType(clsEnumerations.RunnerStatus), status)})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNER_ADJUSTMENTFACTOR", .DataType = GetType(Double), .DefaultValue = adjustmentFactor})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNER_LASTPRICETRADED", .DataType = GetType(Double), .DefaultValue = lastPriceTraded})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNER_TOTALMATCHED", .DataType = GetType(Double), .DefaultValue = totalMatched})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNER_REMOVALDATED", .DataType = GetType(System.DateTime), .DefaultValue = removalDate})
+
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNER_TIMESTAMP", .DataType = GetType(System.String), .DefaultValue = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNER_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNER_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
 
 
 

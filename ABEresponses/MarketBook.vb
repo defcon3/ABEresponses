@@ -121,4 +121,42 @@ Public Class MarketBook
         Return newnode
     End Function
 
+    Function gettable() As System.Data.DataTable
+        Dim dt As New System.Data.DataTable("MarketBook")
+        dt.Columns.Add("MARKETBOOK_ID", GetType(Long))
+
+        Dim i = 0
+
+        For Each tab As Runner In runners
+            dt.Columns("MARKETBOOK_ID").DefaultValue = i
+            dt.Merge(tab.gettable, True, MissingSchemaAction.Add)
+            i += 1
+        Next
+
+
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_MARKETID", .DataType = GetType(System.String), .DefaultValue = marketId})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_TIMESTAMP", .DataType = GetType(System.String), .DefaultValue = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_ISMARKETDATADELAYED", .DataType = GetType(System.Boolean), .DefaultValue = isMarketDataDelayed})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_STATUS", .DataType = GetType(System.String), .DefaultValue = status})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_BETDELAY", .DataType = GetType(System.Int32), .DefaultValue = betDelay})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_TOTALMATCHED", .DataType = GetType(System.Double), .DefaultValue = totalMatched})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_BSPRECONCILED", .DataType = GetType(System.String), .DefaultValue = bspReconciled})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_COMPLETE", .DataType = GetType(System.String), .DefaultValue = complete})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_INPLAY", .DataType = GetType(System.String), .DefaultValue = inplay})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_NUMBEROFWINNERS", .DataType = GetType(System.Int32), .DefaultValue = numberOfWinners})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_NUMBEROFRUNNERS", .DataType = GetType(System.Int32), .DefaultValue = numberOfRunners})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_NUMBEROFACTIVERUNNERS", .DataType = GetType(System.Int32), .DefaultValue = numberOfActiveRunners})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_LASTMATCHTIME", .DataType = GetType(DateTime), .DefaultValue = lastMatchTime})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_TOTALAVAILABLE", .DataType = GetType(System.Double), .DefaultValue = totalAvailable})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_CROSSMATCHING", .DataType = GetType(System.String), .DefaultValue = crossMatching})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_RUNNERSVOIDABLE", .DataType = GetType(System.String), .DefaultValue = runnersVoidable})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETBOOK_VERSION", .DataType = GetType(System.Int64), .DefaultValue = version})
+
+        Return dt
+
+    End Function
+
+
 End Class

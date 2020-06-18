@@ -27,21 +27,7 @@ Public Class StartingPrices
     ''' </summary>
     ''' <returns>The final BSP price for this runner. Only available for a BSP market that has been reconciled.</returns>
     Public Property actualSP As System.Double = -1
-    ''' <summary>
-    ''' Zeitstempel als String
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property StartingPricesTimeStamp As String = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")
-    ''' <summary>
-    ''' Zeitstempel as Datum
-    ''' </summary>
-    ''' <returns>Date.Now</returns>
-    Public Property StartingPricesNow As DateTime = Date.Now
-    ''' <summary>
-    ''' Zeitangabe in Ticks
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property StartingPricesNowTicks As Long = Date.Now.Ticks
+
 
     Public Function getnode() As System.Windows.Forms.TreeNode
 

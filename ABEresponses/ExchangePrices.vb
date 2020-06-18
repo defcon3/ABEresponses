@@ -19,21 +19,7 @@ Public Class ExchangePrices
     ''' </summary>
     ''' <returns>tradedVolume</returns>
     Public Property tradedVolume As List(Of PriceSize) = New List(Of PriceSize)
-    ''' <summary>
-    ''' Zeitstempel als String
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property exchangePricesTimeStamp As String = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")
-    ''' <summary>
-    ''' Zeitstempel as Datum
-    ''' </summary>
-    ''' <returns>Date.Now</returns>
-    Public Property exchangePricesNow As DateTime = Date.Now
-    ''' <summary>
-    ''' Zeitangabe in Ticks
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property exchangePricesNowTicks As Long = Date.Now.Ticks
+
 
 
     ''' <summary>
