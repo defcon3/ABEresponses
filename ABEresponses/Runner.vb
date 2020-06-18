@@ -66,9 +66,11 @@ Public Class Runner
 
         Dim dt As New DataTable
 
+        dt.Merge(ex.gettable, True, MissingSchemaAction.Add)
+        dt.Merge(sp.gettable, True, MissingSchemaAction.Add)
 
-        
-        dt = ex.gettable.Copy
+
+        'dt = ex.gettable.Copy
         dt.Columns.Add(New DataColumn With {.ColumnName = "SELECTIONID", .DataType = GetType(String), .DefaultValue = selectionId})
         dt.Columns.Add(New DataColumn With {.ColumnName = "HANDICAP", .DataType = GetType(Double), .DefaultValue = handicap})
         dt.Columns.Add(New DataColumn With {.ColumnName = "STATUS", .DataType = GetType(String), .DefaultValue = [Enum].GetName(GetType(clsEnumerations.RunnerStatus), status)})

@@ -69,20 +69,18 @@ Public Class ExchangePrices
 
     Function gettable() As System.Data.DataTable
         Dim dt As New System.Data.DataTable("exchangePrices")
-        dt.Columns.Add("ID", GetType(System.Int64))
-        dt.Columns.Add("TYP", GetType(System.String))
-        dt.Columns.Add("PRICE", GetType(System.Decimal))
-        dt.Columns.Add("SIZE", GetType(System.Decimal))
-        dt.Columns.Add("EXCHANGEPRICESTIMESTAMP", GetType(System.String))
-        dt.Columns.Add("EXCHANGEPRICESNOW", GetType(Date))
-        dt.Columns.Add("EXCHANGEPRICESNOWTICKS", GetType(Long))
+        dt.Columns.Add("EXCHANGEPRICES_ID", GetType(System.Int64))
+        dt.Columns.Add("EXCHANGEPRICES_TYP", GetType(System.String))
+        dt.Columns.Add("EXCHANGEPRICES_PRICE", GetType(System.Decimal))
+        dt.Columns.Add("EXCHANGEPRICES_SIZE", GetType(System.Decimal))
+
 
 
         Dim i = 0
 
         For Each atb As PriceSize In availableToBack
 
-            dt.Rows.Add(i, "availableToBack", atb.price, atb.size, exchangePricesTimeStamp, exchangePricesNow, exchangePricesNowTicks)
+            dt.Rows.Add(i, "availableToBack", atb.price, atb.size)
             i += 1
         Next
 
@@ -90,7 +88,7 @@ Public Class ExchangePrices
 
         For Each atb As PriceSize In availableToLay
 
-            dt.Rows.Add(i, "availableToLay", atb.price, atb.size, exchangePricesTimeStamp, exchangePricesNow, exchangePricesNowTicks)
+            dt.Rows.Add(i, "availableToLay", atb.price, atb.size)
             i += 1
         Next
 
@@ -98,9 +96,15 @@ Public Class ExchangePrices
 
         For Each atb As PriceSize In tradedVolume
 
-            dt.Rows.Add(i, "tradedVolume", atb.price, atb.size, exchangePricesTimeStamp, exchangePricesNow, exchangePricesNowTicks)
+            dt.Rows.Add(i, "tradedVolume", atb.price, atb.size)
             i += 1
         Next
+
+
+        dt.Columns.Add(New DataColumn With {.ColumnName = "EXCHANGEPRICES_TIMESTAMP", .DataType = GetType(System.String), .DefaultValue = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "EXCHANGEPRICES_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "EXCHANGEPRICES_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
+
 
         Return dt
 

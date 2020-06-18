@@ -27,6 +27,21 @@ Public Class StartingPrices
     ''' </summary>
     ''' <returns>The final BSP price for this runner. Only available for a BSP market that has been reconciled.</returns>
     Public Property actualSP As System.Double = -1
+    ''' <summary>
+    ''' Zeitstempel als String
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property StartingPricesTimeStamp As String = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")
+    ''' <summary>
+    ''' Zeitstempel as Datum
+    ''' </summary>
+    ''' <returns>Date.Now</returns>
+    Public Property StartingPricesNow As DateTime = Date.Now
+    ''' <summary>
+    ''' Zeitangabe in Ticks
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property StartingPricesNowTicks As Long = Date.Now.Ticks
 
     Public Function getnode() As System.Windows.Forms.TreeNode
 
@@ -51,5 +66,44 @@ Public Class StartingPrices
         Return newnode
 
     End Function
+
+    Function gettable() As System.Data.DataTable
+        Dim dt As New System.Data.DataTable("StartingPrices")
+        dt.Columns.Add("STARTINGPRICES_ID", GetType(System.Int64))
+        dt.Columns.Add("STARTINGPRICES_TYP", GetType(System.String))
+        dt.Columns.Add("STARTINGPRICES_PRICE", GetType(System.Decimal))
+        dt.Columns.Add("STARTINGPRICES_SIZE", GetType(System.Decimal))
+
+
+
+        Dim i = 0
+
+        For Each bst As PriceSize In backStakeTaken
+
+            dt.Rows.Add(i, "backStakeTaken", bst.price, bst.size)
+            i += 1
+        Next
+
+        i = 0
+
+        For Each llt As PriceSize In layLiabilityTaken
+
+            dt.Rows.Add(i, "layLiabilityTaken", llt.price, llt.size)
+            i += 1
+        Next
+
+
+        dt.Columns.Add(New DataColumn With {.ColumnName = "STARTINGPRICES_TIMESTAMP", .DataType = GetType(System.String), .DefaultValue = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "STARTINGPRICES_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "STARTINGPRICES_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "STARTINGPRICES_NEARPRICE", .DataType = GetType(System.Double), .DefaultValue = nearPrice})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "STARTINGPRICES_FARPRICE", .DataType = GetType(System.Double), .DefaultValue = farPrice})
+
+
+
+        Return dt
+
+    End Function
+
 
 End Class
