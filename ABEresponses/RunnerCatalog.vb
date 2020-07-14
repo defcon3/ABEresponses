@@ -27,4 +27,18 @@ Public Class RunnerCatalog
     ''' </summary>
     ''' <returns>The handicap</returns>
     Public Property handicap As System.Double = -1
+
+    Function gettable() As System.Data.DataTable
+        Dim dt As New System.Data.DataTable("RunnerCatalog")
+        dt.Columns.Add("RUNNERCATALOG_SELECTION_ID", GetType(Long))
+        dt.Columns.Add("RUNNERCATALOG_SORT_PRIORITY", GetType(Short))
+        dt.Columns.Add("RUNNERCATALOG_RUNNERNAME", GetType(String))
+
+
+
+        Return dt
+
+    End Function
+
+
 End Class

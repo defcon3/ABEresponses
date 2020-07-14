@@ -97,4 +97,22 @@ Public Class MarketDescription
     ''' </summary>
     ''' <returns>Details about the price ladder in use for this market.</returns>
     Public Property priceLadderDescription As PriceLadderDescription = New PriceLadderDescription
+
+
+
+    Function gettable() As System.Data.DataTable
+        Dim dt As New System.Data.DataTable("MarketDescription")
+        dt.Merge(priceLadderDescription.gettable)
+
+        dt.Columns.Add("MARKETDESCRIPTION_RACETYPE", GetType(System.String))
+        dt.Columns.Add("RUNNERCATALOG_SORT_PRIORITY", GetType(Short))
+        dt.Columns.Add("RUNNERCATALOG_RUNNERNAME", GetType(String))
+
+
+
+        Return dt
+
+    End Function
+
+
 End Class

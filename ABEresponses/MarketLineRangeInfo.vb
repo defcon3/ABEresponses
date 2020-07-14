@@ -22,4 +22,26 @@ Public Class MarketLineRangeInfo
     ''' </summary>
     ''' <returns>The unit - The type of unit the lines are incremented in by the interval (e.g: runs, goals or seconds.</returns>
     Public Property marketUnit As System.String = "---"
+
+
+    Function gettable() As System.Data.DataTable
+        Dim dt As New System.Data.DataTable("MarketLineRangeInfo")
+
+
+
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETLINERANGEINFO_MARKETUNIT", .DataType = GetType(System.String), .DefaultValue = marketUnit})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETLINERANGEINFO_INTERVAL", .DataType = GetType(System.Double), .DefaultValue = interval})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETLINERANGEINFO_MINUNITVALUE", .DataType = GetType(System.Double), .DefaultValue = minUnitValue})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETLINERANGEINFO_MAXUNITVALUE", .DataType = GetType(System.Double), .DefaultValue = maxUnitValue})
+
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETLINERANGEINFO_TIMESTAMP", .DataType = GetType(System.String), .DefaultValue = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETLINERANGEINFO_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETLINERANGEINFO_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
+
+
+
+        Return dt
+
+    End Function
+
 End Class
