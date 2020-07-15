@@ -163,4 +163,55 @@ Public Class RunnerMetadataDescription
     ''' <returns>The number on the saddle-cloth. For US Racing were the runner is paired, this field will display the cloth number of the paired runner e.g. "1A"</returns>
     Public Property CLOTH_NUMBER_ALPHA As System.String = "---"
 
+    Function gettable() As System.Data.DataTable
+        Dim dt As New System.Data.DataTable("RunnerMetadataDescription")
+
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_WEIGHT_UNITS", .DataType = GetType(System.String), .DefaultValue = WEIGHT_UNITS})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_ADJUSTED_RATING", .DataType = GetType(System.String), .DefaultValue = ADJUSTED_RATING})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_DAM_YEAR_BORN", .DataType = GetType(System.String), .DefaultValue = DAM_YEAR_BORN})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_DAYS_SINCE_LAST_RUN", .DataType = GetType(System.String), .DefaultValue = DAYS_SINCE_LAST_RUN})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_WEARING", .DataType = GetType(System.String), .DefaultValue = WEARING})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_DAMSIRE_YEAR_BORN", .DataType = GetType(System.String), .DefaultValue = DAMSIRE_YEAR_BORN})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_SIRE_BRED", .DataType = GetType(System.String), .DefaultValue = SIRE_BRED})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_TRAINER_NAME", .DataType = GetType(System.String), .DefaultValue = TRAINER_NAME})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_STALL_DRAW", .DataType = GetType(System.String), .DefaultValue = STALL_DRAW})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_SEX_TYPE", .DataType = GetType(System.String), .DefaultValue = SEX_TYPE})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_OWNER_NAME", .DataType = GetType(System.String), .DefaultValue = OWNER_NAME})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_SIRE_NAME", .DataType = GetType(System.String), .DefaultValue = SIRE_NAME})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_FORECASTPRICE_NUMERATOR", .DataType = GetType(System.String), .DefaultValue = FORECASTPRICE_NUMERATOR})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_FORECASTPRICE_DENOMINATOR", .DataType = GetType(System.String), .DefaultValue = FORECASTPRICE_DENOMINATOR})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_JOCKEY_CLAIM", .DataType = GetType(System.String), .DefaultValue = JOCKEY_CLAIM})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_WEIGHT_VALUE", .DataType = GetType(System.String), .DefaultValue = WEIGHT_VALUE})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_DAM_NAME", .DataType = GetType(System.String), .DefaultValue = DAM_NAME})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_AGE", .DataType = GetType(System.String), .DefaultValue = AGE})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_COLOUR_TYPE", .DataType = GetType(System.String), .DefaultValue = COLOUR_TYPE})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_DAMSIRE_BRED", .DataType = GetType(System.String), .DefaultValue = DAMSIRE_BRED})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_DAMSIRE_NAME", .DataType = GetType(System.String), .DefaultValue = DAMSIRE_NAME})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_SIRE_YEAR_BORN", .DataType = GetType(System.String), .DefaultValue = SIRE_YEAR_BORN})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_OFFICIAL_RATING", .DataType = GetType(System.String), .DefaultValue = OFFICIAL_RATING})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_FORM", .DataType = GetType(System.String), .DefaultValue = FORM})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_BRED", .DataType = GetType(System.String), .DefaultValue = BRED})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_RUNNERID", .DataType = GetType(System.String), .DefaultValue = runnerId})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_JOCKEY_NAME", .DataType = GetType(System.String), .DefaultValue = JOCKEY_NAME})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_DAM_BRED", .DataType = GetType(System.String), .DefaultValue = DAM_BRED})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_COLOURS_DESCRIPTION", .DataType = GetType(System.String), .DefaultValue = COLOURS_DESCRIPTION})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_COLOURS_FILENAME", .DataType = GetType(System.String), .DefaultValue = COLOURS_FILENAME})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_CLOTH_NUMBER", .DataType = GetType(System.String), .DefaultValue = CLOTH_NUMBER})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_CLOTH_NUMBER_ALPHA", .DataType = GetType(System.String), .DefaultValue = CLOTH_NUMBER_ALPHA})
+
+
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_TIMESTAMP", .DataType = GetType(System.String), .DefaultValue = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERMETADATADESCRIPTION_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
+
+
+
+        Return dt
+
+
+    End Function
+
+
+
+
 End Class

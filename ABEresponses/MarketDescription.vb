@@ -102,12 +102,30 @@ Public Class MarketDescription
 
     Function gettable() As System.Data.DataTable
         Dim dt As New System.Data.DataTable("MarketDescription")
-        dt.Merge(priceLadderDescription.gettable)
+        dt.Merge(priceLadderDescription.gettable, True, MissingSchemaAction.Add)
+        dt.Merge(lineRangeInfo.gettable, True, MissingSchemaAction.Add)
 
-        dt.Columns.Add("MARKETDESCRIPTION_RACETYPE", GetType(System.String))
-        dt.Columns.Add("RUNNERCATALOG_SORT_PRIORITY", GetType(Short))
-        dt.Columns.Add("RUNNERCATALOG_RUNNERNAME", GetType(String))
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_RACETYPE", .DataType = GetType(System.String), .DefaultValue = raceType})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_CLARIFICATIONS", .DataType = GetType(System.String), .DefaultValue = clarifications})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_EACHWAYDIVISOR", .DataType = GetType(System.Double), .DefaultValue = eachWayDivisor})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_RULESHASDATE", .DataType = GetType(System.String), .DefaultValue = rulesHasDate.ToString})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_RULES", .DataType = GetType(System.String), .DefaultValue = rules})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_WALLET", .DataType = GetType(System.String), .DefaultValue = wallet})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_DISCOUNTALLOWED", .DataType = GetType(System.String), .DefaultValue = discountAllowed.ToString})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_MARKETBASERATE", .DataType = GetType(System.Double), .DefaultValue = marketBaseRate})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_REGULATOR", .DataType = GetType(System.String), .DefaultValue = regulator})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_MARKETTYPE", .DataType = GetType(System.String), .DefaultValue = marketType})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_TURNINPLAYENABLED", .DataType = GetType(System.String), .DefaultValue = turnInPlayEnabled.ToString})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_BETTINGTYPE", .DataType = GetType(System.String), .DefaultValue = bettingType.ToString})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_MARKETTIME", .DataType = GetType(System.DateTime), .DefaultValue = marketTime})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_SUSPENDTIME", .DataType = GetType(System.DateTime), .DefaultValue = suspendTime})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_SETTLETIME", .DataType = GetType(System.DateTime), .DefaultValue = settleTime})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_PERSISTENCEENABLED", .DataType = GetType(System.String), .DefaultValue = persistenceEnabled.ToString})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_BSPMARKET", .DataType = GetType(System.String), .DefaultValue = bspMarket.ToString})
 
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_TIMESTAMP", .DataType = GetType(System.String), .DefaultValue = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
 
 
         Return dt

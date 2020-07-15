@@ -14,9 +14,11 @@ Public Class PriceLadderDescription
         Dim dt As New DataTable("PRICELADDERDESCRIPTION")
 
 
+        '[Enum].GetName(GetType(Applications), CALLING_APP ))
+        dt.Columns.Add(New DataColumn With {.ColumnName = "PRICELADDERDESCRIPTION_TYPE", .DataType = GetType(System.String), .DefaultValue = [Enum].GetName(GetType(clsEnumerations.PriceLadderType), type)})
 
-        dt.Columns.Add(New DataColumn With {.ColumnName = "PRICELADDERDESCRIPTION_TYPE", .DataType = GetType(clsEnumerations.PriceLadderType), .DefaultValue = type.ToString})
-
+        'Dim str As String
+        'str = [Enum].GetName(GetType(clsEnumerations.PriceLadderType), type)
 
         Return dt
 
