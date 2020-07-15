@@ -48,4 +48,34 @@ Public Class MarketCatalogue
     ''' </summary>
     ''' <returns>The event the market is contained within</returns>
     Public Property [event] As [Event] = New [Event]
+
+
+
+    Function gettable() As System.Data.DataTable
+        Dim dt As New System.Data.DataTable("MarketCatalogue")
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_MARKETID", .DataType = GetType(System.String), .DefaultValue = marketId})
+
+        dt.Merge([event].gettable, True, MissingSchemaAction.Add)
+        dt.Merge(competition.gettable, True, MissingSchemaAction.Add)
+        dt.Merge(eventType.gettable, True, MissingSchemaAction.Add)
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_TOTALMATCHED", .DataType = GetType(System.Double), .DefaultValue = totalMatched})
+        dt.Merge(description.gettable, True, MissingSchemaAction.Add)
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_MARKETNAME", .DataType = GetType(System.String), .DefaultValue = marketName})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_MARKETSTARTTIME", .DataType = GetType(System.DateTime), .DefaultValue = marketStartTime})
+
+
+        Dim i = 0
+
+        For Each tab As RunnerCatalog In runners
+            dt.Columns("MARKETCATALOGUE_ID").DefaultValue = i
+            dt.Merge(tab.gettable, True, MissingSchemaAction.Add)
+            i += 1
+        Next
+
+
+        Return dt
+
+    End Function
+
+
 End Class
