@@ -53,7 +53,7 @@ Public Class MarketCatalogue
 
     Function gettable() As System.Data.DataTable
         Dim dt As New System.Data.DataTable("MarketCatalogue")
-        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_ID", .DataType = GetType(System.Int16)})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_ID", .DataType = GetType(System.Int64)})
 
         Dim i = 0
 
@@ -81,5 +81,26 @@ Public Class MarketCatalogue
 
     End Function
 
+    Public Function getnode() As System.Windows.Forms.TreeNode
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "marketId: " & marketId, .Name = marketId, .Tag = marketId}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "marketName: " & marketName, .Tag = marketName})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "marketStartTime: " & marketStartTime, .Tag = marketStartTime})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "totalMatched: " & totalMatched, .Tag = totalMatched})
+        newnode.Nodes.Add(description.getnode)
+        newnode.Nodes.Add(eventType.getnode)
+        newnode.Nodes.Add(competition.getnode)
+        newnode.Nodes.Add([event].getnode)
+
+        For Each asdf As RunnerCatalog In runners
+
+            newnode.Nodes.Add(asdf.getnode)
+
+        Next
+
+
+
+        Return newnode
+    End Function
 
 End Class

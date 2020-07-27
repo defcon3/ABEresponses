@@ -33,7 +33,7 @@ Public Class RunnerCatalog
 
 
         dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERCATALOG_SELECTIONID", .DataType = GetType(System.Int64), .DefaultValue = selectionId})
-        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERCATALOG_SORTPRIORITY", .DataType = GetType(System.Int32), .DefaultValue = sortPriority})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERCATALOG_SORTPRIORITY", .DataType = GetType(System.Int64), .DefaultValue = sortPriority})
         dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERCATALOG_RUNNERNAME", .DataType = GetType(System.String), .DefaultValue = runnerName})
 
         dt.Merge(metadata.gettable, True, MissingSchemaAction.Add)
@@ -42,8 +42,26 @@ Public Class RunnerCatalog
         dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERCATALOG_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
         dt.Columns.Add(New DataColumn With {.ColumnName = "RUNNERCATALOG_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
 
+
+        'Dim dr As DataRow
+        'dr = dt.NewRow
+        'dt.Rows.Add(dr)
+
         Return dt
 
+    End Function
+
+
+    Public Function getnode() As System.Windows.Forms.TreeNode
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "RunnerCatalog: " & "RunnerCatalog", .Name = "RunnerCatalog", .Tag = "RunnerCatalog"}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sortPriority: " & sortPriority, .Tag = sortPriority})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "selectionId: " & selectionId, .Tag = selectionId})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "runnerName: " & runnerName, .Tag = runnerName})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "handicap: " & handicap, .Tag = handicap})
+        newnode.Nodes.Add(metadata.getnode)
+
+        Return newnode
     End Function
 
 

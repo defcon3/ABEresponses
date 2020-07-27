@@ -16,17 +16,17 @@ Public Class MarketDescription
     ''' Field required
     ''' </summary>
     ''' <returns>The market start time</returns>
-    Public Property marketTime As Date
+    Public Property marketTime As DateTime
     ''' <summary>
     ''' Field required
     ''' </summary>
     ''' <returns>The market suspend time</returns>
-    Public Property suspendTime As Date
+    Public Property suspendTime As DateTime
     ''' <summary>
     ''' Field optional
     ''' </summary>
     ''' <returns>settled time</returns>
-    Public Property settleTime As Date
+    Public Property settleTime As DateTime
     ''' <summary>
     ''' Field required
     ''' </summary>
@@ -119,7 +119,7 @@ Public Class MarketDescription
         dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_BETTINGTYPE", .DataType = GetType(System.String), .DefaultValue = bettingType.ToString})
         dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_MARKETTIME", .DataType = GetType(System.DateTime), .DefaultValue = marketTime})
         dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_SUSPENDTIME", .DataType = GetType(System.DateTime), .DefaultValue = suspendTime})
-        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_SETTLETIME", .DataType = GetType(System.DateTime), .DefaultValue = settleTime})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_SETTLETIME", .DataType = GetType(System.DateTime), .DefaultValue = New DateTime(1910, 10, 10, 10, 10, 10)})
         dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_PERSISTENCEENABLED", .DataType = GetType(System.String), .DefaultValue = persistenceEnabled.ToString})
         dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETDESCRIPTION_BSPMARKET", .DataType = GetType(System.String), .DefaultValue = bspMarket.ToString})
 
@@ -131,6 +131,36 @@ Public Class MarketDescription
         Return dt
 
     End Function
+
+
+    Public Function getnode() As System.Windows.Forms.TreeNode
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "MarketDescription: ", .Name = "MarketDescription", .Tag = "MarketDescription"}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "persistenceEnabled: " & persistenceEnabled.ToString, .Tag = persistenceEnabled.ToString})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "bspMarket: " & bspMarket.ToString, .Tag = bspMarket.ToString})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "marketTime: " & marketTime, .Tag = marketTime})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "suspendTime: " & suspendTime, .Tag = suspendTime})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "settleTime: " & settleTime, .Tag = settleTime})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "bettingType: " & bettingType.ToString, .Tag = bettingType.ToString})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "turnInPlayEnabled: " & turnInPlayEnabled.ToString, .Tag = turnInPlayEnabled.ToString})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "marketType: " & marketType.ToString, .Tag = marketType.ToString})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "regulator: " & regulator, .Tag = regulator})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "marketBaseRate: " & marketBaseRate, .Tag = marketBaseRate})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "discountAllowed: " & discountAllowed.ToString, .Tag = discountAllowed.ToString})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "wallet: " & wallet.ToString, .Tag = wallet.ToString})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "rules: " & rules.ToString, .Tag = rules.ToString})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "rulesHasDate: " & rulesHasDate.ToString, .Tag = rulesHasDate.ToString})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "eachWayDivisor: " & eachWayDivisor.ToString, .Tag = eachWayDivisor.ToString})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "clarifications: " & clarifications.ToString, .Tag = clarifications.ToString})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "raceType: " & raceType.ToString, .Tag = raceType.ToString})
+        newnode.Nodes.Add(lineRangeInfo.getnode)
+        newnode.Nodes.Add(priceLadderDescription.getnode)
+
+
+        Return newnode
+    End Function
+
+
 
 
 End Class

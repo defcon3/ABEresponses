@@ -88,7 +88,7 @@ Public Class ExchangePrices
 
 
         dt.Columns.Add(New DataColumn With {.ColumnName = "EXCHANGEPRICES_TIMESTAMP", .DataType = GetType(System.String), .DefaultValue = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")})
-        dt.Columns.Add(New DataColumn With {.ColumnName = "EXCHANGEPRICES_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "EXCHANGEPRICES_NOW", .DataType = GetType(DateTime), .DefaultValue = DateTime.Now})
         dt.Columns.Add(New DataColumn With {.ColumnName = "EXCHANGEPRICES_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
 
 

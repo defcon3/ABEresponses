@@ -23,13 +23,22 @@ Public Class EventType
         dt.Columns.Add(New DataColumn With {.ColumnName = "EVENTTYPE_NAME", .DataType = GetType(System.String), .DefaultValue = name})
 
         dt.Columns.Add(New DataColumn With {.ColumnName = "EVENTTYPE_TIMESTAMP", .DataType = GetType(System.String), .DefaultValue = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")})
-        dt.Columns.Add(New DataColumn With {.ColumnName = "EVENTTYPE_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "EVENTTYPE_NOW", .DataType = GetType(DateTime), .DefaultValue = DateTime.Now})
         dt.Columns.Add(New DataColumn With {.ColumnName = "EVENTTYPE_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
 
 
 
         Return dt
 
+    End Function
+
+    Public Function getnode() As System.Windows.Forms.TreeNode
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "EventType: " & "EventType", .Name = "EventType", .Tag = "EventType"}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "id: " & id, .Tag = id})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "name: " & name, .Tag = name})
+
+        Return newnode
     End Function
 
 End Class

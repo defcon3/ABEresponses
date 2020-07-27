@@ -57,7 +57,7 @@ Public Class MarketBook
     ''' Field optional
     ''' </summary>
     ''' <returns>The most recent time an order was executed</returns>
-    Public Property lastMatchTime As System.DateTime = New DateTime(1900, 1, 1)
+    Public Property lastMatchTime As System.DateTime = New DateTime(1910, 10, 10, 10, 10, 10)
     ''' <summary>
     ''' Field optional
     ''' </summary>

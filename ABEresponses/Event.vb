@@ -31,7 +31,7 @@ Public Class [Event]
     ''' Field optional
     ''' </summary>
     ''' <returns>The scheduled start date and time of the event. This is Europe/London (GMT) by default</returns>
-    Public Property openDate As Date
+    Public Property openDate As DateTime
 
 
     Function gettable() As System.Data.DataTable
@@ -47,7 +47,7 @@ Public Class [Event]
         dt.Columns.Add(New DataColumn With {.ColumnName = "EVENT_OPENDATE", .DataType = GetType(System.DateTime), .DefaultValue = openDate})
 
         dt.Columns.Add(New DataColumn With {.ColumnName = "EVENT_TIMESTAMP", .DataType = GetType(System.String), .DefaultValue = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")})
-        dt.Columns.Add(New DataColumn With {.ColumnName = "EVENT_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "EVENT_NOW", .DataType = GetType(DateTime), .DefaultValue = DateTime.Now})
         dt.Columns.Add(New DataColumn With {.ColumnName = "EVENT_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
 
 
@@ -55,6 +55,20 @@ Public Class [Event]
         Return dt
 
     End Function
+
+    Public Function getnode() As System.Windows.Forms.TreeNode
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "Event: " & "Event", .Name = "Event", .Tag = "Event"}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "id: " & id, .Tag = id})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "countryCode: " & countryCode, .Tag = countryCode})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "timezone: " & timezone, .Tag = timezone})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "name: " & name, .Tag = name})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "venue: " & venue, .Tag = venue})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "openDate: " & openDate, .Tag = openDate})
+
+        Return newnode
+    End Function
+
 
 
 

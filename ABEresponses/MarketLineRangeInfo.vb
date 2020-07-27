@@ -44,4 +44,16 @@ Public Class MarketLineRangeInfo
 
     End Function
 
+    Public Function getnode() As System.Windows.Forms.TreeNode
+        Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "MarketLineRangeInfo: ", .Name = "MarketLineRangeInfo", .Tag = "MarketLineRangeInfo"}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "marketUnit: " & marketUnit, .Tag = marketUnit})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "interval: " & interval, .Tag = interval})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "minUnitValue: " & minUnitValue, .Tag = minUnitValue})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "maxUnitValue: " & maxUnitValue, .Tag = maxUnitValue})
+
+        Return newnode
+    End Function
+
+
 End Class
