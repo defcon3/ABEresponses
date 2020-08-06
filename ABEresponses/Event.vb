@@ -58,13 +58,13 @@ Public Class [Event]
 
     Public Function getnode() As System.Windows.Forms.TreeNode
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "Event: " & "Event", .Name = "Event", .Tag = "Event"}
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "id: " & id, .Tag = id})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "countryCode: " & countryCode, .Tag = countryCode})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "timezone: " & timezone, .Tag = timezone})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "name: " & name, .Tag = name})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "venue: " & venue, .Tag = venue})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "openDate: " & openDate, .Tag = openDate})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now, .Name = "EVENT_ZEITSTEMPEL"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "id: " & id, .Tag = id, .Name = "EVENT_ID"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "countryCode: " & countryCode, .Tag = countryCode, .Name = "EVENT_COUNTRYCODE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "timezone: " & timezone, .Tag = timezone, .Name = "EVENT_TIMEZONE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "name: " & name, .Tag = name, .Name = "EVENT_NAME"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "venue: " & venue, .Tag = venue, .Name = "EVENT_VENUE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "openDate: " & openDate, .Tag = openDate, .Name = "EVENT_OPENDATE"})
 
         Return newnode
     End Function

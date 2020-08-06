@@ -35,9 +35,9 @@ Public Class Competition
 
     Public Function getnode() As System.Windows.Forms.TreeNode
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "Competition: " & "Competition", .Name = "Competition", .Tag = "Competition"}
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "id: " & id, .Tag = id})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "name: " & name, .Tag = name})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now, .Name = "COMPETITION_ZEITSTEMPEL"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "id: " & id, .Tag = id, .Name = "COMPETITION_ID"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "name: " & name, .Tag = name, .Name = "COMPETITION_NAME"})
 
         Return newnode
     End Function

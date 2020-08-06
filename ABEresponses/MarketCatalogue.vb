@@ -83,10 +83,10 @@ Public Class MarketCatalogue
 
     Public Function getnode() As System.Windows.Forms.TreeNode
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "marketId: " & marketId, .Name = marketId, .Tag = marketId}
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "marketName: " & marketName, .Tag = marketName})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "marketStartTime: " & marketStartTime, .Tag = marketStartTime})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "totalMatched: " & totalMatched, .Tag = totalMatched})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now, .Name = "MARKETCATALOGUE_ZEITSTEMPEL"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "marketName: " & marketName, .Tag = marketName, .Name = "MARKETCATALOGUE_MARKETNAME"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "marketStartTime: " & marketStartTime, .Tag = marketStartTime, .Name = "MARKETCATALOGUE_MARKETSTARTTIME"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "totalMatched: " & totalMatched, .Tag = totalMatched, .Name = "MARKETCATALOGUE_TOTALMATCHED"})
         newnode.Nodes.Add(description.getnode)
         newnode.Nodes.Add(eventType.getnode)
         newnode.Nodes.Add(competition.getnode)

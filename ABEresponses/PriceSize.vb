@@ -20,8 +20,8 @@ Public Class PriceSize
     Public Function getnode() As System.Windows.Forms.TreeNode
 
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "PriceSize", .Name = "PriceSize", .Tag = "PriceSize"}
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "price: " & price, .Tag = price})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "size: " & size, .Tag = size})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "price: " & price, .Tag = price, .Name = "PRICESIZE_PRICE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "size: " & size, .Tag = size, .Name = "PRICESIZE_SIZE"})
 
         Return newnode
 

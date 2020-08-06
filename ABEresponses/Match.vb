@@ -37,12 +37,12 @@ Public Class Match
     Public Function getnode() As System.Windows.Forms.TreeNode
 
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "match", .Name = "match", .Tag = "match"}
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "betId: " & betId, .Tag = betId})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "matchId: " & matchId, .Tag = matchId})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "side: " & side, .Tag = side})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "price: " & price, .Tag = price})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "size: " & size, .Tag = size})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "matchDate: " & matchDate, .Tag = matchDate})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "betId: " & betId, .Tag = betId, .Name = "MATCH_BETID"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "matchId: " & matchId, .Tag = matchId, .Name = "MATCH_MATCHID"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "side: " & side, .Tag = side, .Name = "MATCH_SIDE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "price: " & price, .Tag = price, .Name = "MATCH_PRICE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "size: " & size, .Tag = size, .Name = "MATCH_SIZE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "matchDate: " & matchDate, .Tag = matchDate, .Name = "MATCH_MATCHDATE"})
         Return newnode
     End Function
 

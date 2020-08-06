@@ -91,26 +91,26 @@ Public Class Order
     Public Function getnode() As System.Windows.Forms.TreeNode
 
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "order", .Name = "order", .Tag = "order"}
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "betId: " & betId, .Tag = betId})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "orderType: " & orderType, .Tag = orderType})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "status: " & status, .Tag = status})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "persistenceType: " & persistenceType, .Tag = persistenceType})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "side: " & side, .Tag = side})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "price: " & price, .Tag = price})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "size: " & size, .Tag = size})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "betId: " & betId, .Tag = betId, .Name = "ORDER_BETID"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "orderType: " & orderType, .Tag = orderType, .Name = "ORDER_ORDERTYPE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "status: " & status, .Tag = status, .Name = "ORDER_STATUS"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "persistenceType: " & persistenceType, .Tag = persistenceType, .Name = "ORDER_PERSISTENCETYPE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "side: " & side, .Tag = side, .Name = "ORDER_SIDE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "price: " & price, .Tag = price, .Name = "ORDER_PRICE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "size: " & size, .Tag = size, .Name = "ORDER_SIZE"})
 
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "bspLiability: " & bspLiability, .Tag = bspLiability})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "placedDate: " & placedDate, .Tag = placedDate})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "avgPriceMatched: " & avgPriceMatched, .Tag = avgPriceMatched})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeMatched: " & sizeMatched, .Tag = sizeMatched})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "bspLiability: " & bspLiability, .Tag = bspLiability, .Name = "ORDER_BSPLIABILITY"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "placedDate: " & placedDate, .Tag = placedDate, .Name = "ORDER_PLACEDDATE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "avgPriceMatched: " & avgPriceMatched, .Tag = avgPriceMatched, .Name = "ORDER_AVGPRICEMATCHED"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeMatched: " & sizeMatched, .Tag = sizeMatched, .Name = "ORDER_SIZEMATCHED"})
 
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeRemaining: " & sizeRemaining, .Tag = sizeRemaining})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeLapsed: " & sizeLapsed, .Tag = sizeLapsed})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeCancelled: " & sizeCancelled, .Tag = sizeCancelled})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeVoided: " & sizeVoided, .Tag = sizeVoided})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeRemaining: " & sizeRemaining, .Tag = sizeRemaining, .Name = "ORDER_SIZEREMAINING"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeLapsed: " & sizeLapsed, .Tag = sizeLapsed, .Name = "ORDER_SIZELAPSED"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeCancelled: " & sizeCancelled, .Tag = sizeCancelled, .Name = "ORDER_SIZECANCELLED"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sizeVoided: " & sizeVoided, .Tag = sizeVoided, .Name = "ORDER_SIZEVOIDED"})
 
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "customerOrderRef: " & customerOrderRef, .Tag = customerOrderRef})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "customerStrategyRef: " & customerStrategyRef, .Tag = customerStrategyRef})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "customerOrderRef: " & customerOrderRef, .Tag = customerOrderRef, .Name = "ORDER_CUSTOMERORDERREF"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "customerStrategyRef: " & customerStrategyRef, .Tag = customerStrategyRef, .Name = "ORDER_CUSTOMERSTRATEGYREF"})
 
         Return newnode
     End Function

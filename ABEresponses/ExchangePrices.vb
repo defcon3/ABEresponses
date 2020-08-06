@@ -30,9 +30,9 @@ Public Class ExchangePrices
 
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "ExchangePrices", .Name = "ExchangePrices", .Tag = "ExchangePrices"}
 
-        Dim atbnode = New System.Windows.Forms.TreeNode With {.Text = "availableToBack", .Name = "availableToBack", .Tag = "availableToBack"}
-        Dim atlnode = New System.Windows.Forms.TreeNode With {.Text = "availableToLay", .Name = "availableToLay", .Tag = "availableToLay"}
-        Dim tvnode = New System.Windows.Forms.TreeNode With {.Text = "tradedVolume", .Name = "tradedVolume", .Tag = "tradedVolume"}
+        Dim atbnode = New System.Windows.Forms.TreeNode With {.Text = "availableToBack", .Tag = "availableToBack", .Name = "EXCHANGEPRICES_AVAILABLETOBACK"}
+        Dim atlnode = New System.Windows.Forms.TreeNode With {.Text = "availableToLay", .Tag = "availableToLay", .Name = "EXCHANGEPRICES_AVAILABLETOLAY"}
+        Dim tvnode = New System.Windows.Forms.TreeNode With {.Text = "tradedVolume", .Tag = "tradedVolume", .Name = "EXCHANGEPRICES_TRADEDVOLUME"}
 
 
         For Each atb As PriceSize In availableToBack

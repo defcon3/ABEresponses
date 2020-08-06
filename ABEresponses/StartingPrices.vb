@@ -32,10 +32,10 @@ Public Class StartingPrices
     Public Function getnode() As System.Windows.Forms.TreeNode
 
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "StartingPrices", .Name = "StartingPrices", .Tag = "StartingPrices"}
-        Dim bstnode = New System.Windows.Forms.TreeNode With {.Text = "backStakeTaken", .Name = "backStakeTaken", .Tag = "backStakeTaken"}
-        Dim lltnode = New System.Windows.Forms.TreeNode With {.Text = "layLiabilityTaken", .Name = "layLiabilityTaken", .Tag = "layLiabilityTaken"}
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "nearPrice: " & nearPrice, .Tag = nearPrice})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "farPrice: " & farPrice, .Tag = farPrice})
+        Dim bstnode = New System.Windows.Forms.TreeNode With {.Text = "backStakeTaken", .Name = "STARTINGPRICES_BACKSTAKETAKEN", .Tag = "backStakeTaken"}
+        Dim lltnode = New System.Windows.Forms.TreeNode With {.Text = "layLiabilityTaken", .Name = "STARTINGPRICES_LAYLIABILITYTAKEN", .Tag = "layLiabilityTaken"}
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "nearPrice: " & nearPrice, .Tag = nearPrice, .Name = "STARTINGPRICES_NEARPRICE"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "farPrice: " & farPrice, .Tag = farPrice, .Name = "STARTINGPRICES_FARPRICE"})
 
         For Each bst As PriceSize In backStakeTaken
             bstnode.Nodes.Add(bst.getnode)

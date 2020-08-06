@@ -54,11 +54,11 @@ Public Class RunnerCatalog
 
     Public Function getnode() As System.Windows.Forms.TreeNode
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "RunnerCatalog: " & "RunnerCatalog", .Name = "RunnerCatalog", .Tag = "RunnerCatalog"}
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sortPriority: " & sortPriority, .Tag = sortPriority})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "selectionId: " & selectionId, .Tag = selectionId})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "runnerName: " & runnerName, .Tag = runnerName})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "handicap: " & handicap, .Tag = handicap})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now, .Name = "RUNNERCATALOG_ZEITSTEMPEL"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "sortPriority: " & sortPriority, .Tag = sortPriority, .Name = "RUNNERCATALOG_SORTPRIORITY"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "selectionId: " & selectionId, .Tag = selectionId, .Name = "RUNNERCATALOG_SELECTIONID"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "runnerName: " & runnerName, .Tag = runnerName, .Name = "RUNNERCATALOG_RUNNERNAME"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "handicap: " & handicap, .Tag = handicap, .Name = "RUNNERCATALOG_HANDICAP"})
         newnode.Nodes.Add(metadata.getnode)
 
         Return newnode

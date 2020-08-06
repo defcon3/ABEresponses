@@ -98,13 +98,13 @@ Public Class Runner
     Public Function getnode() As System.Windows.Forms.TreeNode
 
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "runner", .Name = "runner", .Tag = "runner"}
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "selectionId: " & selectionId, .Tag = selectionId})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "handicap: " & handicap, .Tag = handicap})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "status: " & status, .Tag = status})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "adjustmentFactor: " & adjustmentFactor, .Tag = adjustmentFactor})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "lastPriceTraded: " & lastPriceTraded, .Tag = lastPriceTraded})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "totalMatched: " & totalMatched, .Tag = totalMatched})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "removalDate: " & removalDate, .Tag = removalDate})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "selectionId: " & selectionId, .Tag = selectionId, .Name = "RUNNER_SELECTIONID"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "handicap: " & handicap, .Tag = handicap, .Name = "RUNNER_HANDICAP"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "status: " & status, .Tag = status, .Name = "RUNNER_STATUS"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "adjustmentFactor: " & adjustmentFactor, .Tag = adjustmentFactor, .Name = "RUNNER_ADJUSTMENTFACTOR"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "lastPriceTraded: " & lastPriceTraded, .Tag = lastPriceTraded, .Name = "RUNNER_LASTPRICETRADED"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "totalMatched: " & totalMatched, .Tag = totalMatched, .Name = "RUNNER_TOTALMATCHED"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "removalDate: " & removalDate, .Tag = removalDate, .Name = "RUNNER_REMOVALDATE"})
         newnode.Nodes.Add(sp.getnode)
         newnode.Nodes.Add(ex.getnode)
         For Each o As [Order] In orders
