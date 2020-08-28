@@ -53,7 +53,7 @@ Public Class MarketCatalogue
 
     Function gettable() As System.Data.DataTable
         Dim dt As New System.Data.DataTable("MarketCatalogue")
-        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_ID", .DataType = GetType(System.Int64)})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_ID", .DataType = GetType(Long)})
 
         Dim i = 0
 

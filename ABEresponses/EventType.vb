@@ -34,9 +34,9 @@ Public Class EventType
 
     Public Function getnode() As System.Windows.Forms.TreeNode
         Dim newnode = New System.Windows.Forms.TreeNode With {.Text = "EventType: " & "EventType", .Name = "EventType", .Tag = "EventType"}
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now, .Name = "EVENTTYPE_ID"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "Zeitstempel: " & DateAndTime.Now, .Tag = DateAndTime.Now, .Name = "EVENTTYPE_ZEITSTEMPEL"})
         newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "id: " & id, .Tag = id, .Name = "EVENTTYPE_ID"})
-        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "name: " & name, .Tag = name, .Name = "EVENTTYPE_ID"})
+        newnode.Nodes.Add(New System.Windows.Forms.TreeNode With {.Text = "name: " & name, .Tag = name, .Name = "EVENTTYPE_NAME"})
 
         Return newnode
     End Function
