@@ -53,12 +53,12 @@ Public Class MarketCatalogue
 
     Function gettable() As System.Data.DataTable
         Dim dt As New System.Data.DataTable("MarketCatalogue")
-        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_ID", .DataType = GetType(Long)})
+        'dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_ID", .DataType = GetType(Long)})
 
         Dim i = 0
 
         For Each tab As RunnerCatalog In runners
-            dt.Columns("MARKETCATALOGUE_ID").DefaultValue = i
+            'dt.Columns("MARKETCATALOGUE_ID").DefaultValue = i
             dt.Merge(tab.gettable, True, MissingSchemaAction.Add)
             i += 1
         Next
@@ -74,6 +74,9 @@ Public Class MarketCatalogue
         dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_MARKETNAME", .DataType = GetType(System.String), .DefaultValue = marketName})
         dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_MARKETSTARTTIME", .DataType = GetType(System.DateTime), .DefaultValue = marketStartTime})
 
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_TIMESTAMP", .DataType = GetType(System.String), .DefaultValue = Date.Now.ToString("dd/MM/yyyy hh:mm:ss.fff tt")})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
+        dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
 
 
 
