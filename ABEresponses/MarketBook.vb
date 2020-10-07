@@ -123,12 +123,12 @@ Public Class MarketBook
 
     Function gettable() As System.Data.DataTable
         Dim dt As New System.Data.DataTable("MarketBook")
-        dt.Columns.Add("MARKETBOOK_ID", GetType(Long))
+        'dt.Columns.Add("MARKETBOOK_ID", GetType(Long))
 
         Dim i = 0
 
         For Each tab As Runner In runners
-            dt.Columns("MARKETBOOK_ID").DefaultValue = i
+            'dt.Columns("MARKETBOOK_ID").DefaultValue = i
             dt.Merge(tab.gettable, True, MissingSchemaAction.Add)
             i += 1
         Next
