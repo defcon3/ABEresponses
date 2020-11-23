@@ -1,4 +1,5 @@
-﻿''' <summary>
+﻿Imports System.Net.Mime
+''' <summary>
 ''' MarketCatalogue - Objekt, erbt die Properties aus clsResponseRoot
 ''' </summary>
 Public Class MarketCatalogue
@@ -78,7 +79,23 @@ Public Class MarketCatalogue
         dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_NOW", .DataType = GetType(DateTime), .DefaultValue = Date.Now})
         dt.Columns.Add(New DataColumn With {.ColumnName = "MARKETCATALOGUE_NOWTICKS", .DataType = GetType(System.Int64), .DefaultValue = Date.Now.Ticks})
 
+        dt.Columns.Add(New DataColumn With {.ColumnName = "HASHTAG", .DataType = GetType(System.String)})
 
+
+        For Each rw As DataRow In dt.Rows
+            If eventType.name = "Soccer" Then
+
+                'rw("HASHTAG") = "#" & Left([event].name, 3) & Right([event].name, 3)
+
+                rw("HASHTAG") = "#" & getAbbriviationFromName(([event].name).Split(New String() {" v "}, 0)(0)) & getAbbriviationFromName(([event].name).Split(New String() {" v "}, 1)(1))
+
+            Else
+
+                rw("HASHTAG") = "kein Fußball"
+
+            End If
+
+        Next
 
         Return dt
 
@@ -105,5 +122,97 @@ Public Class MarketCatalogue
 
         Return newnode
     End Function
+
+    Private Function getAbbriviationFromName(ByVal str As String) As String
+
+        Select Case str
+            Case Is = "Arminia Bielefeld"
+                Return "DSC"
+            Case Is = "1. FC Kaiserslautern"
+                Return "FCK"
+            Case Is = "Hannover 96"
+                Return "H96"
+            Case Is = "1. FC Nürnberg"
+                Return "FCN"
+            Case Is = "Bayer Leverkusen"
+                Return "B04"
+            Case Is = "Leverkusen"
+                Return "B04"
+            Case Is = "Borussia Mönchengladbach"
+                Return "BMG"
+            Case Is = "Mgladbach"
+                Return "BMG"
+            Case Is = "Werder Bremen"
+                Return "BRE"
+            Case Is = "Hertha BSC Berlin"
+                Return "BSC"
+            Case Is = "Hertha Berlin"
+                Return "BSC"
+            Case Is = "Borussia Dortmund"
+                Return "BVB"
+            Case Is = "Dortmund"
+                Return "BVB"
+            Case Is = "FC Augsburg"
+                Return "FCA"
+            Case Is = "Augsburg"
+                Return "FCA"
+            Case Is = "FC Bayern München"
+                Return "FCB"
+            Case Is = "Bayern Munich"
+                Return "FCB"
+            Case Is = "1. FC Kaiserslautern"
+                Return "FCK"
+            Case Is = "1. FC Nürnberg"
+                Return "FCN"
+            Case Is = "Hannover 96"
+                Return "H96"
+            Case Is = "1899 Hoffenheim"
+                Return "HOF"
+            Case Is = "Hoffenheim"
+                Return "HOF"
+            Case Is = "Hamburger SV"
+                Return "HSV"
+            Case Is = "1. FC Köln"
+                Return "KOE"
+            Case Is = "FC Koln"
+                Return "KOE"
+            Case Is = "Mainz 05"
+                Return "M05"
+            Case Is = "Mainz"
+                Return "M05"
+            Case Is = "FC Schalke 04"
+                Return "S04"
+            Case Is = "Schalke 04"
+                Return "S04"
+            Case Is = "SC Freiburg"
+                Return "SCF"
+            Case Is = "Freiburg"
+                Return "SCF"
+            Case Is = "VfB Stuttgart"
+                Return "VFB"
+            Case Is = "Stuttgart"
+                Return "VFB"
+            Case Is = "VfL Wolfsburg"
+                Return "WOB"
+            Case Is = "Wolfsburg"
+                Return "WOB"
+            Case Is = "Werder Bremen"
+                Return "SVW"
+            Case Is = "RB Leipzig"
+                Return "RBL"
+            Case Is = "Eintracht Frankfurt"
+                Return "SGE"
+            Case Is = "Union Berlin"
+                Return "FCU"
+            Case Is = "1899 Hoffenheim"
+                Return "TSG"
+            Case Is = "Arminia Bielefeld"
+                Return "DSC"
+            Case Else
+                Return "###"
+        End Select
+
+    End Function
+
 
 End Class
